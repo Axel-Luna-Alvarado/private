@@ -19,7 +19,7 @@ form{
 
 }
 h1 {
-    font-size: 30px;
+    font-size: 50px;
     color: red;
     text-align: center;
     font: condensed 10% sans-serif;
@@ -48,6 +48,8 @@ font-size: 15px;
 
 .btn{
 background-color: red;
+width: 200px;
+padding: 5px;
 
 }
 .btn:hover {

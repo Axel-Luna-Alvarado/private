@@ -8,7 +8,6 @@ export const Login = () => {
         email: '',
         password: ''
     })
-
     const handleChange = (e) => {
         setUser({
             ...user,
@@ -41,7 +40,7 @@ export const Login = () => {
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <FaRegUser />
                             </span>
-                            <input className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" onChange={handleChange} placeholder="USUARIO" type="text" name="email" />
+                            <input className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" onChange={handleChange} placeholder="USUARIO" type="text" name="email" required />
                         </label>
 
                         <label className="relative block my-6 w-80">

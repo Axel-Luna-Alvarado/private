@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.reservas-container {
+  background-image: url('../assets/img/inicio.jpg');
+  background-color: #ff6348; /* Color de fondo naranja */
+  width: 1192px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.reservas-logo-container {
+  background: white;
+  display: inline-block;
+  padding: 30px;
+  border-radius: 20%;
+}
+
+
+.reservas-logo {
+  width: 150px;
+}
+
+.reservas-subtitulos {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  margin: 10px 0;
+  letter-spacing: 2px;
+  
+}
+
+.reservas-titulo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  margin: 20px 0;
+  font-size: 2.5rem;
+  letter-spacing: 1.5px;
+  font-size: 65px;
+}
+
+.reservas-button {
+    color: #ff6347; /* Color del texto del botón */
+    border: 2px solid #ff6347; /* Borde del botón */
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    background-color: white;
+
+  }
+  
+  .reservas-button:hover {
+    background-color: #ffa07a;
+    color: white;
+    border-color: #ffa07a;
+  }
+  

@@ -2,7 +2,9 @@
 
 .reservas-container {
   background-image: url('../assets/img/inicio.jpg');
-  background-color: #ff6348; /* Color de fondo naranja */
+  
+  background-size: cover; 
+  background-position: center;
   width: 1192px;
   height: 600px;
   display: flex;
@@ -11,6 +13,7 @@
   text-align: center;
   border-radius: 8px;
 }
+
 
 .reservas-logo-container {
   background: white;

@@ -1,9 +1,8 @@
-import React from 'react'
 import logo from '../assets/img/logo.png'
 
 const Inicio = () => {
   return (
-    <div className="reservas-container d-flex justify-content-center align-items-center">
+    <div className="reservas-container d-flex justify-content-center align-items-center w-full h-full">
       <div className="text-center text-white">
         <div className="reservas-logo-container mb-3">
         <img src={logo} alt="logo-img" className="reservas-logo" />

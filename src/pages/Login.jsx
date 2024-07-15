@@ -2,8 +2,14 @@ import { useState } from "react"
 import { FaRegUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import logo from '../assets/img/logo.png'
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
+
+    const navigate = useNavigate();
+
     const [user, setUser] = useState({
         email: '',
         password: ''
@@ -16,9 +22,17 @@ export const Login = () => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(user) //Imprime para comprobar datos
+        console.log(user)
+        try {
+            const response = await axios.post('', user)
+            if (response.status === 200) {
+                navigate('/home')
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -50,10 +64,10 @@ export const Login = () => {
                             </span>
                             <input className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" onChange={handleChange} placeholder="CONTRASEÑA" type="password" name="password" />
                         </label>
-
                         <button type="submit" className="text-white bg-orange-700 w-40 h-10 rounded-lg font-bold">INGRESAR</button><br></br>
-
-                        <a href="#" className="text-lg text-stone-400 font-bold"> Registrese ahora</a>
+                        <Link to={'/signup'}>
+                            <a href="#" className="text-lg text-stone-400 font-bold">Registrese ahora</a>
+                        </Link>
 
                     </form>
                 </div>

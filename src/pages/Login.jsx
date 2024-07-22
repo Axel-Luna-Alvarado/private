@@ -39,15 +39,15 @@ export const Login = () => {
         <>
             <div className="flex rounded-lg shadow-xl">
                 <div className="flex flex-col h-96 w-48 items-center justify-center">
-                    <div className="w-full h-2/4 bg-orange-700 rounded-l-lg">
+                    <div className="w-full h-2/4 bg-red-700 rounded-l-lg">
                     </div>
                     <img src={logo} alt="logo-img" className="absolute w-40 h-40" />
-                    <div className="w-full h-2/4 bg-orange-100 rounded-s-lg">
+                    <div className="w-full h-2/4 bg-red-100 rounded-s-lg">
                     </div>
                 </div>
                 <div className="px-16">
                     <form action="" className="flex flex-col items-center" onSubmit={handleSubmit}>
-                        <h1 className="text-orange-700 font-extrabold text-3xl">RESERVAS</h1>
+                        <h1 className="text-red-700 font-extrabold text-3xl">RESERVAS</h1>
                         <h2 className="text-lg text-stone-400 font-bold">Ingrese usuario y contraseña</h2>
 
                         <label className="relative block mt-4 w-80">
@@ -64,11 +64,12 @@ export const Login = () => {
                             </span>
                             <input className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" onChange={handleChange} placeholder="CONTRASEÑA" type="password" name="password" />
                         </label>
-                        <button type="submit" className="text-white bg-orange-700 w-40 h-10 rounded-lg font-bold">INGRESAR</button><br></br>
-                        <Link to={'/signup'}>
-                            <a href="#" className="text-lg text-stone-400 font-bold">Registrese ahora</a>
+                        <Link to={'/dashboard/home'}>
+                            <button type="submit" className="text-white bg-red-700 w-40 h-10 rounded-lg font-bold">INGRESAR</button><br></br>
                         </Link>
-
+                        <Link to={'/signup'}>
+                            <span className="text-lg text-stone-400 font-bold">Registrese ahora</span>
+                        </Link>
                     </form>
                 </div>
             </div>

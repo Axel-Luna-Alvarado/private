@@ -7,6 +7,7 @@ import { MdOutlineAddHomeWork } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { LuUsers2 } from "react-icons/lu";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 import logo from '../assets/img/logo.png'
 import axios from "axios";
@@ -26,21 +27,21 @@ export const SignUp = () => {
     return (
         <div className="flex items-center justify-center h-full">
             <div className="flex  rounded-lg shadow-xl">
-                <div className="flex flex-col w-72 items-center bg-orange-700 justify-center rounded-l-lg ">
+                <div className="flex flex-col w-72 items-center bg-red-700 justify-center rounded-l-lg ">
                     <img src={logo} alt="logo-img" className="absolute w-52 h-52" />
                 </div>
                 <div className="p-16">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <h1 className="text-orange-700 font-extrabold text-2xl">  CREAR CUENTA </h1>
+                        <h1 className="text-red-700 font-extrabold text-2xl">  CREAR CUENTA </h1>
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                            <LuUsers2 />
+                                <LuUsers2 />
                             </span>
-                        <select name="Rol" id="lag" {...register('Rol')} className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80">
-                        <option value="selecciona">Selecciona el Rol</option>
-                            <option value="Cliente">Cliente</option>
-                            <option value="Administrador">Administrador</option>
-                        </select>
+                            <select name="Rol" id="lag" {...register('Rol')} className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80">
+                                <option value="selecciona">Selecciona el Rol</option>
+                                <option value="Cliente">Cliente</option>
+                                <option value="Administrador">Administrador</option>
+                            </select>
                         </label>
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -87,18 +88,21 @@ export const SignUp = () => {
 
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                            <MdKeyboardDoubleArrowRight />
+                                <MdKeyboardDoubleArrowRight />
 
                             </span>
-                        <select name="Estado" id="lang" {...register('Estado')} className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80">
-                        <option value="selecciona">Selecciona el estado</option>
-                            <option value="Activo">Activo</option>
-                            <option value="Pasivo">Pasivo</option>
-                        </select>
+                            <select name="Estado" id="lang" {...register('Estado')} className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80">
+                                <option value="selecciona">Selecciona el estado</option>
+                                <option value="Activo">Activo</option>
+                                <option value="Pasivo">Pasivo</option>
+                            </select>
                         </label>
                         <br></br>
-                        <button className='bg-orange-700 text-white w-56 h-10 rounded-lg' type="submit">Registrarse</button>
+                        <button className='bg-red-700 text-white w-56 h-10 rounded-lg' type="submit">Registrarse</button>
                     </form>
+                    <Link to={'/'}>
+                        <span className="text-lg text-stone-400 font-bold">Iniciar sesión</span>
+                    </Link>
                 </div>
             </div>
         </div>

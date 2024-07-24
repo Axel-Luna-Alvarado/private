@@ -1,7 +1,9 @@
 import logo from '../assets/img/logo.png'
 import { Link } from "react-router-dom";
 import { TablaReservas } from './tablaRerservas';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Empresas } from './empresas';
+import { Usuarios } from './usuarios';
+import { Routes, Route } from 'react-router-dom'
 
 export const PanelAdmin = () => {
     return (
@@ -17,17 +19,19 @@ export const PanelAdmin = () => {
                             <Link to={'reservas'}>
                                 <li className='text-white text-2xl font-serif'>Reservas</li>
                             </Link>
-                            <Link>
+                            <Link to={'empresas'}>
                                 <li className='text-white text-2xl font-serif'>Empresas</li>
                             </Link>
-                            <Link>
+                            <Link to={'usuarios'}>
                                 <li className='text-white text-2xl font-serif'>Usuarios</li>
                             </Link>
                         </ul>
                     </div>
-                    <div className='w-1/4'>
+                    <div className='w-full'>
                         <Routes>
                             <Route path='/reservas' element={<TablaReservas />} />
+                            <Route path='/empresas' element={<Empresas />} />
+                            <Route path='/usuarios' element={<Usuarios />} />
                         </Routes>
                     </div>
                 </div>

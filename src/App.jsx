@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      {<Router>
+      <Router>
         <Routes>
           <Route path='/dashboard/home' element={<Inicio />} />
           <Route path='/signup' element={<SignUp />} />
@@ -19,7 +19,7 @@ function App() {
           <Route path='/dashboard/reserva' element={<Reserva />} />
           <Route path='/dashboard/panel/*' element={<PanelAdmin />} />
         </Routes>
-      </Router>}
+      </Router>
       {/* <PanelAdmin /> */}
     </>
 

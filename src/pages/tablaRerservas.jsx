@@ -1,37 +1,31 @@
-import { Link } from "react-router-dom/dist"
+import { RowReservas } from "../components/rowReservas"
+
 export const TablaReservas = () => {
     return (
         <>
             <span>Lista de Reservas</span>
-            <table className="w-11/12">
+            <table className="w-full">
                 <thead className='border-b-2 border-gray-200'>
                     <tr>
-                        <th className='p-3 text-sm font-semibold tracking-wide text-left'>Establecimiento</th>
-                        <th className='p-3 text-sm font-semibold tracking-wide text-left'>Nombres</th>
-                        <th className='p-3 text-sm font-semibold tracking-wide text-left'>Cedula</th>
-                        <th className='p-3 text-sm font-semibold tracking-wide text-left'>Telefono</th>
-                        <th className='p-3 text-sm font-semibold tracking-wide text-left'>Dirección</th>
-                        <th className='p-3 text-sm font-semibold tracking-wide text-left'>Fecha Inicio</th>
+                        <th className='p-3'>Establecimiento</th>
+                        <th className='p-3'>Nombres</th>
+                        <th className='p-3'>Cedula</th>
+                        <th className='p-3'>Telefono</th>
+                        <th className='p-3'>Dirección</th>
+                        <th className='p-3'>Fecha Inicio</th>
+                        <th className='p-3'>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {/* <FileRow id='FIG-069' name='Evento del día del padre' status='Aprobado' priority='Alta' sender='Eduardo' />
                     <FileRow id='FIG-006' name='Documento numero 1' status='Enviado' priority='Media' sender='Eduardo' />
                     <FileRow id='FIG-117' name='Documento numero 3' status='Enviado' priority='Media' sender='Eduardo' /> */}
-                    <tr className="h-16">
-                        <td>Las Cariñosas</td>
-                        <td>Kleber Alexander Aviles Parrales</td>
-                        <td><span className="rounded-lg border-2 p-1 me-2 font-semibold">12065810694</span></td>
-                        <td><span className="rounded-lg border-2 p-1 font-semibold">0988084761</span></td>
-                        <td className=" me-5">Baba, Tinoco</td>
-                        <td className="">04/10/2002</td>
-                        <td className=" flex items-center">
-                            <Link to={'/'} className="mx-3 flex justify-center flex-col items-center mt-2">
-                                
-                                ver
-                            </Link>
-                        </td>
-                    </tr>
+                    {/* Por el momento para ver, luego lo cambias */}
+
+                    <RowReservas id={1} establecimiento={'Las Cariñosas'} nombres={'Kleber Alexander Aviles Parrales'} cedula={'12065810694'} telefono={'0988084761'} direccion={'Baba, Tinoco'} inicio={'04/10/2002'} />
+                    <RowReservas id={1} establecimiento={'Motel La Luna'} nombres={'Jazmin Noemi Contreras Anchundia'} cedula={'12065810694'} telefono={'0988084761'} direccion={'Babahoyo, Via Jujan'} inicio={'23/07/2024'} />
+                    <RowReservas id={1} establecimiento={'Hotel Gran Paris'} nombres={'Jorge Eduardo Valverde Santillan'} cedula={'1206913830'} telefono={'0988084761'} direccion={'Miami'} inicio={'04/10/2002'} />
+
                 </tbody>
             </table>
         </>

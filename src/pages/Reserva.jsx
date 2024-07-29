@@ -8,10 +8,11 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 export const Reserva = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-    /* console.log(data); */
+    console.log(data);
     try {
-      const response = await axios.post('to do', data)
-      console.log(response)
+      const response = await axios.post('http://localhost:8310/reserva', data)
+      console.log(data)
+      console.log(response.status, response.data)
     } catch (error) {
       console.log(error)
     }
@@ -24,31 +25,25 @@ export const Reserva = () => {
           <img src={logo} alt="" />
         </div>
         <div>
-          <form action="" className="flex flex-col justify-center items-center">
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center">
             <span className="text-red-700 font-bold text-3xl my-7">
               REGISTRA TU RESERVA
             </span>
             <div className="flex w-full justify-around items-center justify-center">
               <div className="flex flex-col w-2/4 items-center">
+
                 <label className="relative block my-6 w-96 h-16">
                   <span className="absolute inset-y-0 left-0 flex items-center">
-                    <LuUser size={50} color="grey" />
+                    <MdKeyboardDoubleArrowRight size={50} color="grey" />
                   </span>
-                  <input className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-12 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="RESERVA" type="text" name="" />
+                  <input {...register('idestablecimiento')} className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-12 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="ESTABLECIMIENTO" type="text"/>
                 </label>
 
                 <label className="relative block my-6 w-96 h-16">
                   <span className="absolute inset-y-0 left-0 flex items-center">
                     <MdKeyboardDoubleArrowRight size={50} color="grey" />
                   </span>
-                  <input className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-12 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="ESTABLECIMIENTO" type="text" name="" />
-                </label>
-
-                <label className="relative block my-6 w-96 h-16">
-                  <span className="absolute inset-y-0 left-0 flex items-center">
-                    <MdKeyboardDoubleArrowRight size={50} color="grey" />
-                  </span>
-                  <input className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-12 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="FECHA INICIO" type="date" name="" />
+                  <input {...register('fechainicio')} className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-12 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="FECHA INICIO" type="date"/>
                 </label>
               </div>
               <div className="flex flex-col w-2/4 items-center">
@@ -56,21 +51,14 @@ export const Reserva = () => {
                   <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                     <LuUserPlus size={50} color="grey" />
                   </span>
-                  <input className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-16 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="USUARIO" type="text" name="" />
+                  <input {...register('idusuario')} className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-16 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="USUARIO" type="text"/>
                 </label>
 
                 <label className="relative block my-6 w-96 h-16">
                   <span className="absolute inset-y-0 left-0 flex items-center">
                     <MdKeyboardDoubleArrowRight size={50} color="grey" />
                   </span>
-                  <input className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-12 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="ESTADO" type="text" name="" />
-                </label>
-
-                <label className="relative block my-6 w-96 h-16">
-                  <span className="absolute inset-y-0 left-0 flex items-center">
-                    <MdKeyboardDoubleArrowRight size={50} color="grey" />
-                  </span>
-                  <input className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-12 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="FECHA FIN" type="date" name="" />
+                  <input {...register('fechafin')} className="placeholder:text-bold placeholder:text-2xl focus:outline-none block font-medium pl-12 pr-3 shadow-sm sm:text-sm bg-stone-200 w-96 h-16" placeholder="FECHA FIN" type="date" />
                 </label>
               </div>
             </div>

@@ -26,9 +26,16 @@ export const Login = () => {
         e.preventDefault()
         console.log(user)
         try {
-            const response = await axios.post('', user)
+            const response = await axios.post('http://localhost:8310/login', user)
+            console.log(user)
+            console.log(response.status, response.data)
             if (response.status === 200) {
-                navigate('/home')
+                const user = response.data[0];
+                if (user.idrol === 1) {
+                    navigate('/dashboard/panel/*')
+                } else {
+                    navigate('/dashboard/home')
+                }
             }
         } catch (error) {
             console.log(error)
@@ -62,11 +69,9 @@ export const Login = () => {
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <RiLockPasswordFill />
                             </span>
-                            <input className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" onChange={handleChange} placeholder="CONTRASEÑA" type="password" name="password" />
+                            <input className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" onChange={handleChange} placeholder="CONTRASEÑA" type="password" name="clave" />
                         </label>
-                        <Link to={'/dashboard/home'}>
                             <button type="submit" className="text-white bg-red-700 w-40 h-10 rounded-lg font-bold">INGRESAR</button><br></br>
-                        </Link>
                         <Link to={'/signup'}>
                             <span className="text-lg text-stone-400 font-bold">Registrese ahora</span>
                         </Link>

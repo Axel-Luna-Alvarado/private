@@ -1,6 +1,23 @@
-import { RowReservas } from "../components/rowReservas"
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { RowReservas } from "../components/rowReservas.jsx";
 
 export const TablaReservas = () => {
+    const [reservas, setReservas] = useState([]);
+
+    useEffect(() => {
+        const fetchReservas = async () => {
+            try {
+                const response = await axios.get('http://localhost:8310/reservaciones');
+                setReservas(response.data);
+                console.log(response.data)
+            } catch (error) {
+                console.error('Error fetching reservas:', error);
+            }
+        };
+        fetchReservas();
+    }, []);
+
     return (
         <>
             <span>Lista de Reservas</span>
@@ -9,25 +26,30 @@ export const TablaReservas = () => {
                     <tr>
                         <th className='p-3'>Establecimiento</th>
                         <th className='p-3'>Nombres</th>
-                        <th className='p-3'>Cedula</th>
-                        <th className='p-3'>Telefono</th>
-                        <th className='p-3'>Dirección</th>
                         <th className='p-3'>Fecha Inicio</th>
+                        <th className='p-3'>Fecha Fin</th>
+                        <th className='p-3'>Estado</th>
+                        <th className='p-3'>QR</th>
                         <th className='p-3'>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {/* <FileRow id='FIG-069' name='Evento del día del padre' status='Aprobado' priority='Alta' sender='Eduardo' />
-                    <FileRow id='FIG-006' name='Documento numero 1' status='Enviado' priority='Media' sender='Eduardo' />
-                    <FileRow id='FIG-117' name='Documento numero 3' status='Enviado' priority='Media' sender='Eduardo' /> */}
-                    {/* Por el momento para ver, luego lo cambias */}
-
-                    <RowReservas id={1} establecimiento={'Las Cariñosas'} nombres={'Kleber Alexander Aviles Parrales'} cedula={'12065810694'} telefono={'0988084761'} direccion={'Baba, Tinoco'} inicio={'04/10/2002'} />
-                    <RowReservas id={1} establecimiento={'Motel La Luna'} nombres={'Jazmin Noemi Contreras Anchundia'} cedula={'12065810694'} telefono={'0988084761'} direccion={'Babahoyo, Via Jujan'} inicio={'23/07/2024'} />
-                    <RowReservas id={1} establecimiento={'Hotel Gran Paris'} nombres={'Jorge Eduardo Valverde Santillan'} cedula={'1206913830'} telefono={'0988084761'} direccion={'Miami'} inicio={'04/10/2002'} />
-
+                    {reservas.map(reserva => (
+                        <RowReservas
+                            key={reserva.id_reserva}
+                            id={reserva.id_reserva}
+                            nombres={reserva.idusuario} // Necesitarás mapear `idusuario` a nombres reales
+                            establecimiento={reserva.idestablecimiento} // Necesitarás mapear `idestablecimiento` a nombres reales
+                            inicio={new Date(reserva.fechainicio).toLocaleDateString()}
+                            fin={new Date(reserva.fechafin).toLocaleDateString()}
+                            estado={reserva.estado}
+                            qr={reserva.qr}
+                        />
+                    ))}
                 </tbody>
             </table>
         </>
-    )
-}
+    );
+};
+
+export default TablaReservas;

@@ -4,6 +4,8 @@ import { TablaReservas } from './tablaRerservas';
 import { Empresas } from './empresas';
 import { Usuarios } from './usuarios';
 import { Routes, Route } from 'react-router-dom'
+import TablaUsuarios from './tablaUsuarios';
+import TablaEstablecimientos from './tablaEstablecimientos';
 
 export const PanelAdmin = () => {
     return (
@@ -30,8 +32,8 @@ export const PanelAdmin = () => {
                     <div className='w-full'>
                         <Routes>
                             <Route path='/reservas' element={<TablaReservas />} />
-                            <Route path='/empresas' element={<Empresas />} />
-                            <Route path='/usuarios' element={<Usuarios />} />
+                            <Route path='/empresas' element={<TablaEstablecimientos />} />
+                            <Route path='/usuarios' element={<TablaUsuarios />} />
                         </Routes>
                     </div>
                 </div>

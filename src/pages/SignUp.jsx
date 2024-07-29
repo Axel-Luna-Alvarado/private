@@ -14,12 +14,16 @@ import axios from "axios";
 
 export const SignUp = () => {
 
+
     const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
-        /* console.log(data); */
+        console.log(data);
         try {
-            const response = await axios.post('to do', data)
-            console.log(response)
+            const response = await axios.post('http://localhost:8310/usuariocliente', data);
+            if (response.status === 201) {
+                navigate('/')
+            }
+            console.log(response.status, response.data)
         } catch (error) {
             console.log(error)
         }
@@ -37,65 +41,53 @@ export const SignUp = () => {
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <LuUsers2 />
                             </span>
-                            <select name="Rol" id="lag" {...register('Rol')} className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80">
+                            <select id="lag" {...register('idrol')} className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80">
                                 <option value="selecciona">Selecciona el Rol</option>
-                                <option value="Cliente">Cliente</option>
-                                <option value="Administrador">Administrador</option>
+                                <option value="1">Cliente</option>
+                                <option value="2">Administrador</option>
                             </select>
                         </label>
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <FaUserPlus />
                             </span>
-                            <input type="text" {...register('Nombre')} placeholder="Nombres" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
+                            <input type="text" {...register('nombres')} placeholder="Nombres" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
                         </label>
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <FaUserPlus />
                             </span>
-                            <input type="text" {...register('Apellidos')} placeholder="Apellidos" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
+                            <input type="text" {...register('apellidos')} placeholder="Apellidos" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
                         </label>
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <MdNumbers />
                             </span>
-                            <input type="number" {...register('Cedula')} placeholder="Cedula" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
+                            <input type="number" {...register('cedula')} placeholder="Cedula" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
                         </label>
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <MdEmail />
                             </span>
-                            <input type="email"{...register('Email')} placeholder="Email" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
+                            <input type="email"{...register('email')} placeholder="Email" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
                         </label>
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <LuPhoneCall />
                             </span>
-                            <input type="number" {...register('Telefono')} placeholder="Telefono" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
+                            <input type="number" {...register('telf')} placeholder="Telefono" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
                         </label>
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <MdOutlineAddHomeWork />
                             </span>
-                            <input type="text"{...register('Direccion')} placeholder="Direccion" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
+                            <input type="text"{...register('direccion')} placeholder="Direccion" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" />
                         </label>
                         <label className="relative block mt-4 w-80">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <RiLockPasswordLine />
                             </span>
-                            <input type="password" {...register('Contraseña')} placeholder="Contraseña" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" /> <br></br>
-                        </label>
-
-                        <label className="relative block mt-4 w-80">
-                            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                                <MdKeyboardDoubleArrowRight />
-
-                            </span>
-                            <select name="Estado" id="lang" {...register('Estado')} className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80">
-                                <option value="selecciona">Selecciona el estado</option>
-                                <option value="Activo">Activo</option>
-                                <option value="Pasivo">Pasivo</option>
-                            </select>
+                            <input type="password" {...register('clave')} placeholder="Contraseña" required className="placeholder:text-bold block py-2 pl-9 pr-3 shadow-sm sm:text-sm bg-stone-200 w-80" /> <br></br>
                         </label>
                         <br></br>
                         <button className='bg-red-700 text-white w-56 h-10 rounded-lg' type="submit">Registrarse</button>
